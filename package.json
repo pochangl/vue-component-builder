@@ -1,0 +1,22 @@
+{
+    "name": "vue-component-builder",
+    "version": "0.0.1",
+    "description": "statically build dynamic composite component",
+    "scripts": {
+        "test": "jest --watch --config jest.conf.js",
+        "lint": "tslint src/*.{ts,tsx}"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.15",
+        "jest": "^24.8.0",
+        "ts-jest": "^24.0.2",
+        "tslint": "^5.18.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-config-standard": "^8.0.1",
+        "typescript": "^3.5.3",
+        "vue": "^2.6.10"
+    },
+    "dependencies": {
+        "prettier": "^1.18.2"
+    }
+}
