@@ -1,22 +1,18 @@
-import { IComponentBuilder, IBuilderProduct } from './ComponentBuilder'
-import { IWidgetComponent, WidgetComponent } from './WidgetComponent'
+import { IBuilder, IProduct } from './Builder'
+import { WidgetComponent } from './WidgetComponent'
 import { IWidgetSerializer, WidgetSerializer } from './WidgetSerializer'
 
-export interface IWidgetBuilderProduct extends IBuilderProduct {
-  extends: IWidgetComponent
+export interface IWidgetProduct extends IProduct {
   Serializer: IWidgetSerializer
 }
 
-export interface IWidgetBuilder
-  extends IComponentBuilder<IWidgetBuilderProduct> {
-  component: IWidgetComponent
+export interface IWidgetBuilder extends IBuilder<IWidgetProduct> {
   serializer: IWidgetSerializer
-
-  build(): IWidgetBuilderProduct
+  build(): IWidgetProduct
 }
 
 export class WidgetBuilder implements IWidgetBuilder {
-  public component = new WidgetComponent()
+  public component: WidgetComponent = new WidgetComponent()
   public serializer = new WidgetSerializer()
 
   public build() {

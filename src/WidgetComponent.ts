@@ -1,23 +1,7 @@
-import { IComponent } from './interfaces'
+import { Component } from './Component'
 import { IWidgetSerializer } from './WidgetSerializer'
 
-export interface IWidgetComponent extends IComponent {
-  methods: {
-    update(value)
-  }
-}
-
-export class WidgetComponent implements IWidgetComponent {
-  public methods = {
-    update(value) {
-      return this.$options.Serializer.encode(value)
-    },
-  }
-  public props = {
-    value: {
-      required: true,
-    },
-  }
+export class WidgetComponent extends Component {
   private $options: {
     Serializer: IWidgetSerializer
   }

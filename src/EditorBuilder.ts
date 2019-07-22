@@ -1,4 +1,4 @@
-import { IBuilder, IComponentProduct } from './Builder'
+import { IBuilder, IProduct } from './Builder'
 import { EditorComponent } from './EditorComponent'
 import { Serializer } from './Serializer'
 import { IWidgetBuilder } from './WidgetBuilder'
@@ -7,7 +7,7 @@ interface IWidgetBuilderMap {
   readonly [key: string]: IWidgetBuilder
 }
 
-interface IEditorProduct extends IComponentProduct {
+interface IEditorProduct extends IProduct {
   Fields: string[]
   Tag: string
 }

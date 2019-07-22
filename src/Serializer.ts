@@ -1,5 +1,20 @@
-import { IEncoder, ITransformer } from './interfaces'
 import { isEquivalent } from './utils'
+
+export interface ITransformer {
+  isValidFormat(value: object): boolean
+  // simple data check
+
+  transform(value): Promise<any>
+  // transform data from props.value
+}
+
+export interface IEncoder {
+  isValidData(value: object): Promise<boolean>
+  // async check for validating data from server
+
+  encode(data): Promise<object>
+  // encode data from value
+}
 
 export interface ISerializer extends IEncoder, ITransformer {
   isEquivalent(input, output): boolean
@@ -19,8 +34,7 @@ export class Serializer implements ISerializer {
     return typeof value !== undefined
   }
   public isEquivalent(input, output) {
-    let data = this.transform(input)
+    const data = this.transform(input)
     return isEquivalent(data, output)
   }
-  protected
 }
