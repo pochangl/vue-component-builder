@@ -1,5 +1,9 @@
 import { isEquivalent } from './utils'
 
+export interface TransformerFunction {
+  (value: any): Promise<any>
+}
+
 export interface ITransformer {
   isValidFormat(value: object): boolean
   // simple data check
