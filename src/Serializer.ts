@@ -4,7 +4,7 @@ export interface ITransformer {
   isValidFormat(value: object): boolean
   // simple data check
 
-  transform(value): Promise<any>
+  transform(value: any): Promise<any>
   // transform data from props.value
 }
 
