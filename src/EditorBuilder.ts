@@ -1,35 +1,32 @@
-import { IComponentBuilder } from './ComponentBuilder'
-import { EditorComponent, IEditorComponent } from './EditorComponent'
-import { ISerializer, Serializer } from './Serializer'
+import { IBuilder, IComponentProduct } from './Builder'
+import { EditorComponent } from './EditorComponent'
+import { Serializer } from './Serializer'
 import { IWidgetBuilder } from './WidgetBuilder'
 
 interface IWidgetBuilderMap {
   readonly [key: string]: IWidgetBuilder
 }
 
-export interface IEditorBuilder extends IComponentBuilder {
-  widgets: IWidgetBuilderMap
-  component: IEditorComponent
+interface IEditorProduct extends IComponentProduct {
+  Fields: string[]
+  Tag: string
+}
 
-  build(): {
-    extends: IEditorComponent
-    Fields: string[]
-    Serializer: ISerializer
-    Tag: string
-  }
+export interface IEditorBuilder extends IBuilder<IEditorProduct> {
+  widgets: IWidgetBuilderMap
 }
 
 export class EditorBuilder implements IEditorBuilder {
   public widgets = {}
-  public component = new EditorComponent()
+  public component: EditorComponent = new EditorComponent()
   public serializer = new Serializer()
-  public tag: string
+  public tag = 'div'
 
   public build() {
     return {
       extends: new EditorComponent(),
-      Fields: Object.keys(this.widgets),
       Serializer: this.serializer,
+      Fields: Object.keys(this.widgets),
       Tag: this.tag,
     }
   }

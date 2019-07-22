@@ -7,7 +7,8 @@ export interface IWidgetBuilderProduct extends IBuilderProduct {
   Serializer: IWidgetSerializer
 }
 
-export interface IWidgetBuilder extends IComponentBuilder {
+export interface IWidgetBuilder
+  extends IComponentBuilder<IWidgetBuilderProduct> {
   component: IWidgetComponent
   serializer: IWidgetSerializer
 

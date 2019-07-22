@@ -1,15 +1,7 @@
 import { IComponent } from './interfaces'
-import { ISerializer, Serializer } from './Serializer'
+import { ISerializer } from './Serializer'
 
-export interface IEditorComponent extends IComponent {
-  $options: {
-    Serializer: ISerializer
-    Tag: string
-    Fields: string[]
-  }
-}
-
-export class EditorComponent implements IEditorComponent {
+export class EditorComponent implements IComponent {
   public $options: {
     Serializer: ISerializer
     Tag: string

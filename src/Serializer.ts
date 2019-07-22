@@ -1,6 +1,9 @@
 import { IEncoder, ITransformer } from './interfaces'
+import { isEquivalent } from './utils'
 
-export interface ISerializer extends IEncoder, ITransformer {}
+export interface ISerializer extends IEncoder, ITransformer {
+  isEquivalent(input, output): boolean
+}
 
 export class Serializer implements ISerializer {
   public encode(data) {
@@ -15,4 +18,9 @@ export class Serializer implements ISerializer {
   public async transform(value) {
     return typeof value !== undefined
   }
+  public isEquivalent(input, output) {
+    let data = this.transform(input)
+    return isEquivalent(data, output)
+  }
+  protected
 }
