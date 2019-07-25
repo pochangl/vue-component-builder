@@ -1,6 +1,6 @@
 import { isEquivalent } from './utils'
 
-export interface TransformerFunction {
+export interface ITransformerFunction {
   (value: any): Promise<any>
 }
 

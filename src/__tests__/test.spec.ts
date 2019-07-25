@@ -1,8 +1,8 @@
-import df from '../serializer'
+import { Serializer } from '../Serializer'
 
-describe('test', () => {
-    it('should pass', () => {
-        expect(1 + 1).toBe(2)
-        expect(df).toBeInstanceOf(Object)
-    })
+describe('Serializer', () => {
+  it('should pass', () => {
+    expect(1 + 1).toBe(2)
+    expect(df).toBeInstanceOf(Object)
+  })
 })
